@@ -49,7 +49,7 @@ $(document).ready(function () {
     // console.log(nextTrainTime);
     console.log(mins);
     var newRow = $('<tr>');
-  
+
     newRow.append('<td>' + train.trainName + '</td>');
     newRow.append('<td>' + train.destination + '</td>');
     newRow.append('<td>' + train.frequency + '</td>');
@@ -69,10 +69,10 @@ $(document).ready(function () {
     var firstGuy = moment(firstTrainToday, 'dddd, Do MMMM YYYY HH:mm');
     console.log('first train came at ' + firstGuy.format('HH:mm'));
     //how many minutes have passed since the first train
-    var diff = now.diff(firstGuy, 'minutes');   
+    var diff = now.diff(firstGuy, 'minutes');
     console.log('mins since first train ' + diff);
     //minutes passed/interval gives us the number of trains that have already gone by
-    var trainsPassed = Math.floor(diff/interval);
+    var trainsPassed = Math.floor(diff / interval);
     console.log('trains passed ' + trainsPassed);
     //adding 1 to this gives us the next train's times
     var nextTrain = (trainsPassed + 1) * interval;
@@ -81,7 +81,7 @@ $(document).ready(function () {
     var nextTrainTime = firstGuy.add(nextTrain, 'minutes').format('dddd, Do MMMM YYYY HH:mm');
     var nextTrainHR = firstGuy.add(nextTrain, 'minutes').format('hh:mm a');
     console.log(nextTrainHR);
-    var minutesAway = moment(nextTrainTime , 'Do MMMM YYYY HH:mm:ss').diff(now, 'minutes');
+    var minutesAway = moment(nextTrainTime, 'Do MMMM YYYY HH:mm:ss').diff(now, 'minutes');
     console.log('minutes away: ' + minutesAway);
     mins = minutesAway;
     nextOne = nextTrainHR;
@@ -89,16 +89,34 @@ $(document).ready(function () {
     console.log(mins);
     // $('.test-time').html(nextTrainTime);
   }
-  
 
-  function addTrain() {
-    dataRef.push({
-      destination: "Charlotte",
-      firstTrain: "04:00",
-      frequency: "120",
-      trainName: "QC: Queens Carriage"      
-    });
-  }
-  // addTrain();
+  $('#add-train').on('click', function () {
+    var name = $('#train-name').val();
+    var dest = $('#train-dest').val();
+    var firstTime = $('#train-time').val();
+    var freq = $('#train-freq').val();
+    if (name === "" || dest === "" || firstTime === "" || freq === "") {
+      console.log('nope');
+    }
+    else {
+      dataRef.push({
+        destination: dest,
+        firstTrain: firstTime,
+        frequency: freq,
+        trainName: name
+      });
+    }
+  });
+  
 });
+// function addTrain() {
+//   dataRef.push({
+//     destination: "Cleveland",
+//     firstTrain: "08:00",
+//     frequency: "1440",
+//     trainName: "Why are you going to Cleveland?"
+//   });
+// }
+  // addTrain();
+// });
 

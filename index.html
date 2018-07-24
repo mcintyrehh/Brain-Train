@@ -35,7 +35,11 @@
 
     <div class="container-fluid row ">
         <div class="main-box col-md-10 mx-auto parent text-center">
-            <h1>Current Train Schedules </h1><br><h1 class="train-time"></h1><br><h1 class="test-time"></h1>
+            <h1>Current Train Schedules </h1>
+            <br>
+            <h1 class="train-time"></h1>
+            <br>
+            <h1 class="test-time"></h1>
             <div class="row">
                 <div class="col-md-10 mx-auto">
                     <table class="col-md-10 mx-auto table table-striped table-dark table-hover mainTable">
@@ -54,6 +58,40 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-10 mx-auto parent text-center main-box">
+            <h1>Add Train</h1>
+            <br>
+            <div class="row">
+                <div class="col-md-10 mx-auto">
+                    <div class="inputbox">
+                        <div class="text-left">Train Name</div>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="train-name" aria-describedby="basic-addon3" placeholder="Train Train">
+                        </div>
+                    </div>
+                    <div class="inputbox">
+                        <div class="text-left">Destination</div>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="train-dest" aria-describedby="basic-addon3" placeholder="Trainidelphia">
+                        </div>
+                    </div>
+                    <div class="inputbox">
+                        <div class="text-left">First Train Time (hh:mm - military time)</div>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="train-time" aria-describedby="basic-addon3" placeholder="04:20">
+                        </div>
+                    </div>
+                    <div class="inputbox">
+                        <div class="text-left">Frequency</div>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="train-freq" aria-describedby="basic-addon3" placeholder="187">
+                        </div>
+                    </div>
+                    <button id="add-train" type="button" class="btn-sm btn-primary d-flex justify-self-start">Add Train</button>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

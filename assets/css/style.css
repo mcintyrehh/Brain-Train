@@ -22,7 +22,12 @@ body {
 	left: 0;
 	z-index: -1;
 }
-
+.main-table {
+	overflow: auto;
+}
+#add-train {
+	margin-bottom: 10px;
+}
 
 .titletop {
     font-size: 24pt;
@@ -31,4 +36,11 @@ body {
 }
 .train-time {
 	margin-bottom: 10px;
+}
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 100%;
+        justify-content: center;
+	} 
 }
